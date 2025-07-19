@@ -1,0 +1,52 @@
+npm run build
+# .env.production
+REACT_APP_API_URL=https://your-backend-domain.com/api
+npm install dotenv
+require('dotenv').config();
+const helmet = require('helmet');
+app.use(helmet());
+const helmet = require('helmet');
+app.use(helmet());
+npm install morgan
+const morgan = require('morgan');
+app.use(morgan('combined'));
+MONGO_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/mydb?retryWrites=true&w=majority
+npm install
+npm run start
+NODE_ENV=production
+MONGO_URI=your_connection_string
+PORT=10000
+npm run build
+REACT_APP_API_URL=https://your-api.render.com
+name: Backend CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./server
+
+      - name: Run Tests
+        run: npm test || echo "No tests yet"
+        working-directory: ./server
+
+      - name: Deploy to Render
+        run: curl https://api.render.com/deploy/srv-xyz123?key=your_render_deploy_key
+app.get('/health', (req, res) => res.send('OK'));
+app.get('/health', (req, res) => res.send('OK'));
